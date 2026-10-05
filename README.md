@@ -186,7 +186,7 @@ class OCSession:
             # Log the failure type and the wait before the next attempt.
             log.error("Authentication failed (attempt %d / %s): %s, backing off %ds",
                       self.consecutive_auth_failures, type(e).__name__, str(e), backoff)
-            # Escalate loudly every 100 consecutive failures so a human is pulled in.
+            # Escalate every 100 consecutive failures.
             if self.consecutive_auth_failures % 100 == 0:
                 log.critical("ALERT: %d consecutive authentication failures. Manual intervention required.",
                              self.consecutive_auth_failures)
